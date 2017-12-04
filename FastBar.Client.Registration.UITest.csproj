@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{019E0FEC-54C3-4666-BDB8-D955FF071BD3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FastBar.Client.Registration.UITest</RootNamespace>
+    <AssemblyName>FastBar.Client.Registration.UITest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\FastBar.Client.Registration\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest">
+      <HintPath>..\..\FastBar.Client.Registration\packages\Xamarin.UITest.2.2.1\lib\net45\Xamarin.UITest.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Workflows\AddCashToExistingAttendeeTests.cs" />
+    <Compile Include="Constants\UITestConstants.cs" />
+    <Compile Include="Helpers\AppExtension.cs" />
+    <Compile Include="Pages\Admin\AdminLoginPage.cs" />
+    <Compile Include="Pages\Admin\AdminPage.cs" />
+    <Compile Include="Pages\Admin\ChangeEnvironmentPage.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\EventPage.cs" />
+    <Compile Include="Pages\HamburgerMenuPage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\WorkFlows\AddWristBandPage.cs" />
+    <Compile Include="Pages\WorkFlows\AttendeeDetailPage.cs" />
+    <Compile Include="Pages\WorkFlows\CvvViewPage.cs" />
+    <Compile Include="Pages\WorkFlows\LoadCashViewPage.cs" />
+    <Compile Include="Pages\WorkFlows\ManualCardEntryPage.cs" />
+    <Compile Include="Pages\WorkFlows\OptInEmailPage.cs" />
+    <Compile Include="Pages\WorkFlows\PhoneNumberViewPage.cs" />
+    <Compile Include="Pages\WorkFlows\RegistrationCompletedPage.cs" />
+    <Compile Include="Pages\WorkFlows\ScanExistingWristbandPage.cs" />
+    <Compile Include="Pages\WorkFlows\SelectPricingPackagePage.cs" />
+    <Compile Include="Pages\WorkFlows\SelectWorkFlowPage.cs" />
+    <Compile Include="Pages\WorkFlows\SwipeCardPage.cs" />
+    <Compile Include="Queries\Query.cs" />
+    <Compile Include="AppInitializer.cs" />
+    <Compile Include="Workflows\AppLaunchTest.cs" />
+    <Compile Include="Workflows\BaseTest.cs" />
+    <Compile Include="Workflows\RegisterByCardOnlineManualCardTests.cs" />
+    <Compile Include="Workflows\RegisterByCardOnlineSwipeCardTests.cs" />
+    <Compile Include="Workflows\RegisterByCashOnlineTests.cs" />
+    <Compile Include="Constants\TestCardNumbers.cs" />
+    <Compile Include="Workflows\VerifyAllCardLogoTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FastBar.Client.Registration\iOS\FastBar.Registration.Forms.iOS.csproj">
+      <Project>{76837149-D316-4F0E-B92B-8B6268815F0F}</Project>
+      <Name>FastBar.Registration.Forms.iOS</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FastBar.Client.Common\FastBar.Client.Common.PCL\FastBar.Client.Common.csproj">
+      <Project>{B9FC0BB9-8B65-4032-A7D8-BEEFDD0FA41A}</Project>
+      <Name>FastBar.Client.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Workflows\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Queries\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\FastBar.Client.Registration\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\FastBar.Client.Registration\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+</Project>
